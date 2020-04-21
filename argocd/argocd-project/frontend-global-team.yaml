@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: frontend-web-global
+  namespace: argocd
+spec:
+  description: frontend-web deployed in staging and production cluster for kubernetes
+  # a project may have multiple directory
+  sourceRepos:
+  - 'https://github.com/davidsugianto/argocd-demo.git'
+  destinations:
+  - namespace: staging-app
+    servers: https://kubernetes.default.svc
+  - namespace: production-app
+    servers: https://kubernetes.default.svc

@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: ClusterIP
+  selector:
+    app: frontend-app
+    tier: app
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-app-node
+  labels:
+    app: frontend-app
+    tier: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-app
+      tier: app
+  template:
+    metadata:
+      labels:
+        app: frontend-app
+        tier: app
+    spec:
+      containers:
+      - name: frontend-app-service
+        image: idiots718/nuxtjs-basic-ssr:0.1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: BUILD_FLAG
+            value: "staging"
+          - name: NODE_PORT
+            value: "3000"
