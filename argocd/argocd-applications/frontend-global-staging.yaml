@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/davidsugianto/argocd-demo.git
     targetRevision: master
-    path: applications
+    path: applications/staging
   destinations:
   - namespace: staging-app
     servers: https://kubernetes.default.svc
