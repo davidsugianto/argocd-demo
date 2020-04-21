@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: frontend-web-global-production
+  name: frontend-web-global-staging
   namespace: argocd
 spec:
   project: frontend-web-global
