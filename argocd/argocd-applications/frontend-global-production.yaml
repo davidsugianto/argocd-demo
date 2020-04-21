@@ -9,9 +9,9 @@ spec:
     repoURL: https://github.com/davidsugianto/argocd-demo.git
     targetRevision: master
     path: applications/production
-  destinations:
-  - namespace: production-app
-    servers: https://kubernetes.default.svc
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production-app
   # syncPolicy:
   #   automated:
   #     prune: true

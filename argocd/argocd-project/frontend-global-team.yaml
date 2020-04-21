@@ -10,6 +10,6 @@ spec:
   - 'https://github.com/davidsugianto/argocd-demo.git'
   destinations:
   - namespace: staging-app
-    servers: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc
   - namespace: production-app
-    servers: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc
