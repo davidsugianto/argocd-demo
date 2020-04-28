@@ -6,4 +6,4 @@ metadata:
 data:
   policy.default: role:readonly
   policy.csv: |    
-    g, alice, role:admin
+    g, user, role:admin
